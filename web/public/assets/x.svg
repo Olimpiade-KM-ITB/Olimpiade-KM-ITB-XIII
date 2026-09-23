@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="pajamas:twitter">
+<path id="Vector" d="M27.882 20.784L43.071 3H39.471L26.286 18.441L15.75 3H3.6L19.53 26.352L3.6 45H7.2L21.126 28.692L32.253 45H44.403L27.882 20.784ZM22.953 26.556L21.339 24.231L8.496 5.73H14.025L24.387 20.661L26.001 22.986L39.474 42.396H33.945L22.953 26.556Z" fill="url(#paint0_linear_0_7)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_7" x1="25.535" y1="-2.4091" x2="68.2101" y2="39.2636" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#41BCDB"/>
+</linearGradient>
+</defs>
+</svg>
