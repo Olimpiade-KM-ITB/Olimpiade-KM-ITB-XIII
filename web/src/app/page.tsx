@@ -13,11 +13,17 @@ const milestones = [
 const futureLinks = ["Tournament", "Merch", "Sponsor"];
 
 function RegistrationLink({ compact = false }: { compact?: boolean }) {
-  const className = compact ? "registration-link registration-link--compact" : "registration-link";
+  if (compact) {
+    return (
+      <span className="muted-nav-item signup-muted" aria-disabled="true">
+        Sign Up
+      </span>
+    );
+  }
 
   return (
-    <a className={className} href={registrationUrl} target="_blank" rel="noreferrer">
-      {compact ? "Sign Up" : "Register Here"}
+    <a className="registration-link" href={registrationUrl} target="_blank" rel="noreferrer">
+      Register Here
     </a>
   );
 }
