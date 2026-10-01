@@ -1,13 +1,14 @@
 import Image from "next/image";
 
-const registrationUrl = "https://s.id/PendaftaranOlimpiadeKMITB13";
+const registrationUrl = "https://linktr.ee/OlimKMITBXIII";
 
 const milestones = [
-  { label: "Open Registration", date: "24 September" },
-  { label: "Close Registration", date: "TBA" },
-  { label: "Technical Meeting", date: "1–2 Oktober" },
-  { label: "Opening Ceremony", date: "3 Oktober" },
-  { label: "Periode Pertandingan", date: "Oktober–Desember" },
+  { label: "Pendaftaran", date: "1–7 Oktober" },
+  { label: "Technical Meeting", date: "9 Oktober" },
+  { label: "Opening Ceremony", date: "18 Oktober" },
+  { label: "Match", date: "Oktober–November" },
+  { label: "Fun Run", date: "15 November" },
+  { label: "Closing", date: "4 Desember" },
 ];
 
 const futureLinks = ["Tournament", "Merch", "Sponsor"];
@@ -162,7 +163,7 @@ export default function Home() {
           </div>
           <div className="hero-copy" id="about">
             <p>
-              Olimpiade KM ITB XIII adalah ajang olahraga terbesar di Institut Teknologi Bandung yang mempertemukan mahasiswa dari berbagai fakultas dan sekolah. Lebih dari sekadar kompetisi, panggung ini merayakan sportivitas, kebersamaan, dan keberanian untuk melampaui batas.
+              Olimpiade KM ITB XIII adalah ajang olahraga terbesar di Institut Teknologi Bandung yang mempertemukan mahasiswa dari berbagai fakultas dan sekolah #KonstelasiRivalitas.
             </p>
             <RegistrationLink />
           </div>

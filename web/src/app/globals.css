@@ -322,7 +322,7 @@ h1 span {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   height: 265px;
   margin: 58px 0 0;
   padding: 0;
@@ -658,7 +658,7 @@ h1 span {
   }
 
   .timeline-card {
-    min-height: 710px;
+    min-height: 820px;
     padding: 34px 24px 44px;
   }
 
