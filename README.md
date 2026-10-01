@@ -2,18 +2,6 @@
 
 Website Olimpiade KM ITB XIII. Frontend dan backend berjalan dalam satu aplikasi Next.js agar implementasi, review, deployment, dan onboarding staf tetap sederhana.
 
-## Arsitektur
-
-```mermaid
-flowchart TD
-    Visitor[Browser pengunjung] --> Vercel[Vercel]
-    Vercel --> Next[Next.js App Router]
-    Next --> Pages[Halaman publik dan komponen UI]
-    Next --> Routes[Route Handlers /api]
-    Routes --> Health[/api/healthz]
-    Routes --> Version[/api/version]
-```
-
 ### Struktur repository
 
 ```text
@@ -106,22 +94,6 @@ Aturan pull request:
 4. Minta minimal satu review dari anggota tim lain.
 5. Gunakan squash merge agar riwayat branch tetap ringkas.
 6. Hapus branch setelah merge.
-
-### Branch protection GitHub
-
-Pemilik repository perlu mengaktifkan aturan berikut pada `main` dan `develop` di **Settings → Branches → Branch protection rules**:
-
-- Require a pull request before merging.
-- Require approvals: minimal 1.
-- Dismiss stale pull request approvals when new commits are pushed.
-- Require status checks to pass before merging.
-- Jadikan check `Web checks` wajib.
-- Require branches to be up to date before merging.
-- Block force pushes.
-- Block deletions.
-- Batasi siapa yang dapat push langsung ke branch tersebut, idealnya tidak ada selain maintainer.
-
-Workflow CI mencegah merge dengan hasil pemeriksaan yang gagal. Pengaturan branch protection adalah bagian yang menghalangi push langsung dan harus dikonfigurasi di GitHub karena merupakan setting repository, bukan file aplikasi.
 
 ## Konvensi kode
 
