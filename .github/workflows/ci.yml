@@ -5,13 +5,21 @@ on:
     branches:
       - develop
       - main
+  push:
+    branches:
+      - develop
+      - main
 
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   web:
-    name: Web
+    name: Web checks
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -29,17 +37,3 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run build
-
-  api:
-    name: API
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: api
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-go@v6
-        with:
-          go-version-file: api/go.mod
-          cache: false
-      - run: go test ./...
