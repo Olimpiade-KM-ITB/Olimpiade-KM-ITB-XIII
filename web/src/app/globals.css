@@ -47,7 +47,9 @@ summary {
 
 a:focus-visible,
 summary:focus-visible,
-.registration-link:focus-visible {
+.registration-link:focus-visible,
+.signup-link:focus-visible,
+.card-action:focus-visible {
   outline: 3px solid var(--yellow-400);
   outline-offset: 4px;
 }
@@ -138,12 +140,38 @@ main {
   opacity: 0.58;
 }
 
-.signup-muted {
+.desktop-nav a[aria-current="page"]::before {
+  transform: scaleX(1);
+}
+
+.signup-link {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
   justify-self: end;
+  padding: 4px 16px;
+  border: 2px solid var(--yellow-400);
+  border-radius: var(--radius-button);
+  color: white;
+  background: var(--blue-800) url("/assets/blue-texture.webp") center / cover;
+  box-shadow: 0 4px 0 rgb(0 14 88 / 0.28);
   font-family: Bristone, var(--font-inter), sans-serif;
   font-size: 0.8rem;
+  line-height: 1;
+  text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.signup-link:hover {
+  filter: brightness(1.16);
+  transform: translateY(-2px);
+}
+
+.signup-link:active {
+  transform: translateY(1px);
 }
 
 .registration-link {
@@ -489,6 +517,331 @@ h1 span {
   text-align: center;
 }
 
+/* Halaman tournament */
+
+.tournament-canvas {
+  position: relative;
+  isolation: isolate;
+  width: min(100% - 28px, 1240px);
+  margin-inline: auto;
+  padding-top: clamp(44px, 7vw, 96px);
+  container-type: inline-size;
+}
+
+.tournament-decor {
+  display: none;
+}
+
+.tournament-title {
+  margin: 0;
+  color: transparent;
+  background: linear-gradient(172deg, #fff 20%, var(--yellow-400) 122%);
+  background-clip: text;
+  filter: drop-shadow(0 4px 4px rgb(1 14 82 / 0.75));
+  line-height: 1;
+  text-align: center;
+}
+
+.registration {
+  position: relative;
+  z-index: 1;
+  scroll-margin-top: 84px;
+}
+
+.registration-heading {
+  position: relative;
+  display: grid;
+  width: min(100%, 780px);
+  margin: clamp(20px, 3vw, 48px) auto clamp(30px, 4.5vw, 64px);
+  aspect-ratio: 959 / 298;
+  place-items: center;
+}
+
+.registration-swoosh {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 83.3%;
+  height: 72.1%;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.registration-heading__title {
+  position: relative;
+  margin: 0;
+  color: transparent;
+  background: linear-gradient(172deg, #fff 20%, var(--cyan-400) 122%);
+  background-clip: text;
+  filter: drop-shadow(0 4px 4px rgb(1 14 82 / 0.75));
+  font-size: clamp(1.3rem, 6vw, 2.4rem);
+  line-height: 1;
+  text-align: center;
+}
+
+.registration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(18px, 2.6vw, 36px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sport-card {
+  position: relative;
+  display: flex;
+  min-height: 248px;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 16px 20px;
+  overflow: hidden;
+  border: 3px solid var(--yellow-400);
+  border-radius: var(--radius-card);
+  color: white;
+  background: var(--red-500) url("/assets/cta-texture.webp") center / cover;
+  box-shadow: 0 14px 34px rgb(0 14 88 / 0.24);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.sport-card:hover {
+  box-shadow: 0 22px 44px rgb(0 14 88 / 0.3);
+  transform: translateY(-6px);
+}
+
+.sport-card__title {
+  margin: 0;
+  color: transparent;
+  background: linear-gradient(166deg, #fff 20%, var(--yellow-400) 122%);
+  background-clip: text;
+  filter: drop-shadow(0 4px 4px rgb(1 14 82 / 0.75));
+  font-family: Bristone, var(--font-inter), sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  line-height: 1.12;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sport-card__icon {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 176px;
+  min-height: 0;
+  margin: 10px auto;
+  object-fit: contain;
+}
+
+.sport-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.card-action {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 12px;
+  border: 1px solid var(--blue-500);
+  border-radius: 5px;
+  color: white;
+  background: var(--blue-800) url("/assets/blue-texture.webp") center / cover;
+  font-family: Bristone, var(--font-inter), sans-serif;
+  font-size: 0.78rem;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.card-action:not(.is-disabled):hover {
+  filter: brightness(1.18);
+  transform: translateY(-2px);
+}
+
+.card-action.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.tournament-band {
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  height: clamp(150px, 22vw, 420px);
+  margin-top: 40px;
+  margin-left: calc(50% - 50vw);
+  pointer-events: none;
+}
+
+.tournament-band__panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tournament-band__art {
+  position: absolute;
+  top: 37.2%;
+  left: 19.05%;
+  width: 16.87%;
+  height: 57.63%;
+  object-fit: cover;
+}
+
+.deco img {
+  object-fit: cover;
+}
+
+.deco--title-left,
+.deco--title-right {
+  aspect-ratio: 515 / 467;
+}
+
+.deco--brush-left,
+.deco--brush-top-right {
+  aspect-ratio: 515 / 604;
+}
+
+.deco--brush-right {
+  aspect-ratio: 565 / 623;
+}
+
+.deco--cloud {
+  aspect-ratio: 2773 / 1350;
+}
+
+.deco--brush-left img,
+.deco--brush-right img,
+.deco--title-left img,
+.deco--title-right img {
+  object-position: 50% 100%;
+}
+
+.deco--title-left img,
+.deco--title-right img {
+  object-position: 50% 50%;
+}
+
+@media (min-width: 1200px) {
+  .tournament-canvas {
+    width: min(100% - 40px, 1512px);
+    padding-top: 10.45cqw;
+  }
+
+  .tournament-decor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    display: block;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateX(-50%);
+  }
+
+  .deco {
+    position: absolute;
+  }
+
+  .deco--title-left {
+    top: 2.5cqw;
+    left: -6cqw;
+    width: 36cqw;
+    transform: rotate(180deg);
+  }
+
+  .deco--title-right {
+    top: 2.5cqw;
+    right: -6cqw;
+    width: 36cqw;
+    transform: scaleY(-1);
+  }
+
+  .deco--brush-left {
+    top: 35.05cqw;
+    left: -3.17cqw;
+    width: 34.06cqw;
+  }
+
+  .deco--brush-top-right {
+    top: -4.96cqw;
+    left: 103.04cqw;
+    width: 34.06cqw;
+    transform: rotate(180deg);
+  }
+
+  .deco--brush-right {
+    top: 54.43cqw;
+    left: 63.23cqw;
+    width: 37.37cqw;
+    transform: scaleY(-1);
+  }
+
+  .deco--cloud {
+    top: 78.18cqw;
+    left: -14.29cqw;
+    width: 37.63cqw;
+  }
+
+  .tournament-title {
+    position: relative;
+    z-index: 2;
+  }
+
+  .registration-heading {
+    width: 50cqw;
+    margin-top: 4.2cqw;
+    margin-bottom: 2.8cqw;
+  }
+
+  .registration-heading__title {
+    font-size: 2.5cqw;
+  }
+
+  .registration-grid {
+    width: min(100%, 1000px);
+    margin-inline: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.4cqw;
+  }
+
+  .sport-card {
+    min-height: 0;
+    aspect-ratio: 1;
+    padding: 1.3cqw 1cqw 1.2cqw;
+  }
+
+  .sport-card__title {
+    font-size: 1.55cqw;
+  }
+
+  .sport-card__icon {
+    max-width: 12.5cqw;
+  }
+
+  .card-action {
+    min-height: 1.7cqw;
+    padding: 0.26cqw 0.8cqw;
+    font-size: 0.82cqw;
+  }
+
+  .tournament-band {
+    height: 34.66cqw;
+    margin-top: -27.4cqw;
+  }
+}
+
 @keyframes reveal-up {
   from {
     opacity: 0;
@@ -543,7 +896,7 @@ h1 span {
   }
 
   .desktop-nav,
-  .signup-muted {
+  .signup-link {
     display: none;
   }
 
